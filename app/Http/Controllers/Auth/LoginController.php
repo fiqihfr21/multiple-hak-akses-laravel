@@ -44,20 +44,8 @@ class LoginController extends Controller
           }elseif(Auth::attempt([
             'email' => $request->email,
             'password' => $request->password,
-          ]) && Auth::user()->hasRole('gudang')){
-            return $this->redirectTo = 'gudang';
-          }
-          elseif(Auth::attempt([
-            'email' => $request->email,
-            'password' => $request->password,
-          ]) && Auth::user()->hasRole('penjualan')){
-            return $this->redirectTo = 'penjualan';
-          }
-          elseif(Auth::attempt([
-            'email' => $request->email,
-            'password' => $request->password,
-          ]) && Auth::user()->hasRole('cs')){
-            return $this->redirectTo = 'cs';
+          ]) && Auth::user()->hasRole('admin')){
+            return $this->redirectTo = 'admin';
           }
         
         $this->middleware('guest')->except('logout');

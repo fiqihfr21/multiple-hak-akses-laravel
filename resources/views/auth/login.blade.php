@@ -1,7 +1,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8" />
-        <title>Sistem Inventori</title>
+        <title>{{ config('app.name') }}</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta content="width=device-width, initial-scale=1" name="viewport" />
         <meta content="" name="author" />
@@ -14,18 +14,18 @@
         <link href="{{asset('css/plugins.min.css')}}" rel="stylesheet" type="text/css" />
         <link href="{{asset('css/login.min.css')}}" rel="stylesheet" type="text/css" />
         <link rel="shortcut icon" href="favicon.ico" /> </head>
-    <body class=" login">
+    <body class=" login" style="background-color:#ededed!important;">
         <!-- BEGIN LOGO -->
         <div class="logo">
-            <h1 style="color:#fff">Sistem Inventori</h1>
+            <h1 style="color:#595959"><b>{{ config('app.name') }}</b></h1>
         </div>
         <!-- END LOGO -->
         <!-- BEGIN LOGIN -->
-        <div class="content">
+        <div class="content" style="box-shadow: 5px 5px 5px #aaaaaa;">
             <!-- BEGIN LOGIN FORM -->
             <form class="login-form" action="{{ route('login') }}" method="post">
                 @csrf
-                <h3 class="form-title font-green">Sign In</h3>
+                <h3 class="form-title" style="color:#595959">Sign In</h3>
                 <div class="alert alert-danger display-hide">
                     <button class="close" data-close="alert"></button>
                     <span> Masukan Email dan Password Anda. </span>
@@ -47,7 +47,7 @@
                     <label class="control-label visible-ie8 visible-ie9">Password</label>
                     <input class="form-control form-control-solid placeholder-no-fix" type="password" autocomplete="off" placeholder="Password" name="password" /> </div>
                 <div class="form-actions">
-                    <button type="submit" class="btn green uppercase">Login</button>
+                    <button type="submit" class="btn black uppercase">Login</button>
                 </div>
             </form>
             <!-- END LOGIN FORM -->

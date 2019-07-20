@@ -20,14 +20,8 @@ class RedirectIfAuthenticated
         if (Auth::guard($guard)->check()) {
             if (Auth::user()->hasRole('superadmin')) {
                 return redirect('/master');
-            }elseif (Auth::user()->hasRole('gudang')) {
-                return redirect('/gudang');
-            }
-            elseif (Auth::user()->hasRole('penjualan')) {
-                return redirect('/penjualan');
-            }
-            elseif (Auth::user()->hasRole('cs')) {
-                return redirect('/cs');
+            }elseif (Auth::user()->hasRole('admin')) {
+                return redirect('/admin');
             }
         }
 

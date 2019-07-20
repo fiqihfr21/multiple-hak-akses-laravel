@@ -5,7 +5,7 @@
     <!-- BEGIN HEAD -->
     <head>
         <meta charset="utf-8" />
-        <title>Sistem Inventori</title>
+        <title>{{ config('app.name') }}</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta content="width=device-width, initial-scale=1" name="viewport" />
         <meta content="" name="author" />
@@ -34,6 +34,7 @@
         <link href="{{asset('css/fullcalendar.min.css')}}" rel="stylesheet" type="text/css" />
         <!-- END THEME LAYOUT STYLES -->
         <link rel="shortcut icon" href="favicon.ico" /> 
+        @yield('css')
     </head>
     <!-- END HEAD -->
 
@@ -45,7 +46,7 @@
                 <div class="page-header-inner ">
                     <!-- BEGIN LOGO -->
                     <div class="page-logo">
-                        <a href="#" style="padding:10px;font-size: 20px;color:#fff;">Sistem Inventori</a>
+                        <a href="#" style="padding:10px;font-size: 20px;color:#fff;text-decoration:none;">{{ config('app.name') }}</a>
                         <!-- <div class="menu-toggler sidebar-toggler">
                             <span></span>
                         </div> -->
@@ -59,29 +60,6 @@
                     <!-- BEGIN TOP NAVIGATION MENU -->
                     <div class="top-menu">
                         <ul class="nav navbar-nav pull-right"><li class="dropdown dropdown-extended dropdown-notification" id="header_notification_bar">
-                                <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-                                    <i class="icon-bell"></i>
-                                    <span class="badge badge-default"> 1 </span>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li class="external">
-                                        <h3><span class="bold">1 </span> Notifications</h3>
-                                    </li>
-                                    <li>
-                                        <ul class="dropdown-menu-list scroller" style="height: 250px;" data-handle-color="#637283">
-                                            <li>
-                                                <a href="javascript:;">
-                                                    <span class="time">just now</span>
-                                                    <span class="details">
-                                                        <span class="label label-sm label-icon label-success">
-                                                            <i class="fa fa-bullhorn"></i>
-                                                        </span> New user registered. </span>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
                             
                             <!-- END TODO DROPDOWN -->
                             <!-- BEGIN USER LOGIN DROPDOWN -->
@@ -126,7 +104,7 @@
             <!-- BEGIN CONTAINER -->
             <div class="page-container">
                 <!-- BEGIN SIDEBAR -->
-                <div class="page-sidebar-wrapper">
+                <div class="page-sidebar-wrapper" style="background-color:#ededed!important;">
                     <div class="page-sidebar navbar-collapse collapse">
                         <ul class="page-sidebar-menu  page-header-fixed " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200" style="padding-top: 20px">
                             <!-- DOC: To remove the sidebar toggler from the sidebar you just need to completely remove the below "sidebar-toggler-wrapper" LI element -->
@@ -138,11 +116,6 @@
                                     <i class="fa fa-angle-down" style="font-size:17px;"></i></center>
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-default">
-                                    <li>
-                                        <a href="profil.html">
-                                            <i class="icon-user"></i> My Profile </a>
-                                    </li>
-                    
                                     <li>
                                         <a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
@@ -178,46 +151,7 @@
                                 </a>
                             </li>
                             @endif
-                            @if(Auth::user()->hasRole('superadmin') || Auth::user()->hasRole('gudang'))
-                            <li class="nav-item  ">
-                                <a href="gudang.html" class="nav-link nav-toggle">
-                                    <i class="icon-tag"></i>
-                                    <span class="title">Barang</span>
-                                </a>
-                            </li>
-                            <li class="nav-item  ">
-                                    <a href="gudang.html" class="nav-link nav-toggle">
-                                        <i class="icon-layers"></i>
-                                        <span class="title">Stok</span>
-                                    </a>
-                                </li>
-                            <li class="nav-item  ">
-                                <a href="supplier.html" class="nav-link nav-toggle">
-                                    <i class="icon-grid"></i>
-                                    <span class="title">Supplier</span>
-                                </a>
-                            </li>
-                            @endif
-                            @if(Auth::user()->hasRole('superadmin') || Auth::user()->hasRole('penjualan'))
-                            <li class="nav-item ">
-                                <a href="penjualan.html" class="nav-link nav-toggle">
-                                    <i class="icon-basket-loaded"></i>
-                                    <span class="title">Penjualan</span>
-                                </a>
-                            </li>
-                            <li class="nav-item  ">
-                                <a href="keuangan.html" class="nav-link nav-toggle">
-                                    <i class="icon-calculator"></i>
-                                    <span class="title">Keuangan</span>
-                                </a>
-                            </li>
-                            @endif
-                            <li class="nav-item  ">
-                                <a href="customer.html" class="nav-link nav-toggle">
-                                     <i class="icon-users"></i>
-                                     <span class="title">Customer</span>
-                                </a>
-                            </li>
+                            
                         </ul>
                         <!-- END SIDEBAR MENU -->
                         <!-- END SIDEBAR MENU -->
@@ -276,6 +210,7 @@
         <script src="{{asset('js/quick-sidebar.min.js')}}" type="text/javascript"></script>
         <script src="{{asset('js/quick-nav.min.js')}}" type="text/javascript"></script>
         <!-- END THEME LAYOUT SCRIPTS -->
+        @yield('script')
     </body>
 
 </html>
