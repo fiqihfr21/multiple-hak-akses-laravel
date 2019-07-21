@@ -21,19 +21,9 @@ class RolesTableSeeder extends Seeder
                 'description' => 'Hak akses untuk semua fitur',
             ],
             [
-                'name' => 'gudang',
-                'display_name' => 'Admin gudang terdaftar',
-                'description' => 'Hak akses untuk fitur gudang',
-            ],
-            [
-                'name' => 'penjualan',
-                'display_name' => 'Admin penjualan terdaftar',
-                'description' => 'Hak akses untuk fitur penjualan dan keuangan',
-            ],
-            [
-                'name' => 'cs',
-                'display_name' => 'Admin cs terdaftar',
-                'description' => 'Hak akses untuk fitur cs',
+                'name' => 'admin',
+                'display_name' => 'Admin',
+                'description' => 'Hak akses untuk fitur admin',
             ],
         ];
         foreach ($roles as $key => $value) {
@@ -44,22 +34,12 @@ class RolesTableSeeder extends Seeder
             [
                 'name' => 'Master',
                 'email' => 'superadmin@local.com',
-                'password' => bcrypt('superadmin'),
+                'password' => bcrypt('123123'),
             ],
             [
-                'name' => 'Admin Gudang',
-                'email' => 'gudang@local.com',
-                'password' => bcrypt('gudang'),
-            ],
-            [
-                'name' => 'Admin Penjualan',
-                'email' => 'penjualan@local.com',
-                'password' => bcrypt('penjualan'),
-            ],
-            [
-                'name' => 'Admin CS',
-                'email' => 'cs@local.com',
-                'password' => bcrypt('cs1234'),
+                'name' => 'Admin',
+                'email' => 'admin@local.com',
+                'password' => bcrypt('123123'),
             ],
         ];
         $n=1;
